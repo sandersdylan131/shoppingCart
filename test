@@ -1,0 +1,64 @@
+const products = [{
+  name: "cherry", price: 3, quantity: 0, productId: 111, image: "images/cherry.jpg"},{
+  name: "strawberry", price: 5, quantity: 0, productId: 112, image: "images/strawberry.jpg"},{
+  name: "orange", price: 10, quantity: 0, productId: 113, image: "images/orange.jpg"},];
+
+
+
+
+
+
+let cart = []
+
+function addProductToCart(productId) {
+    if(cart.some((products) => products.productId === productId)) {
+      alert("That is already in the cart!");
+    } else {
+      const productToAdd = products.find((product) => product.productId === productId);
+  cart.push(productToAdd);}
+    }
+  
+
+
+function increaseQuantity(productId) {
+   let product = products.find((product) => product.productId === productId);
+product.quantity += 1;}
+
+function decreaseQuantity(productId) {
+   let product = products.find((product) => product.productId === productId);
+product.quantity -= 1;
+    if (product.quantity == 0){
+      removeProductFromCart(product.productId)
+    }}
+
+function removeProductFromCart(productId) {
+  let product = products.find((product) => product.productId === productId);
+  product.quantity = 0;
+      if (cart.includes(product)) {
+        removeIndex = cart.indexOf(product);
+        cart.splice(removeIndex, 1);
+      }
+}
+
+function cartTotal(){
+  let sum = 0;
+  for (const x = 0; x < cart.length; x++){
+    sum += product.quantity * product.price;
+  }
+  return sum;
+}
+
+function emptyCart() {
+  for (const x = 0; x < cart.length; x++) {
+    cart[x].quantity = 0;
+    cart.splice(0, cart.length)
+  }
+}
+
+
+let totalPaid = 0;
+
+function pay(amount) {
+  totalPaid += amount;
+return totalPaid - cartTotal();
+}
