@@ -1,7 +1,22 @@
 const products = [{
-  name: "cherry", price: 3, quantity: 0, productId: 111, image: "images/cherry.jpg"},{
-  name: "strawberry", price: 5, quantity: 0, productId: 112, image: "images/strawberry.jpg"},{
-  name: "orange", price: 10, quantity: 0, productId: 113, image: "images/orange.jpg"},];
+  name: "cherry",
+  price: 3,
+  quantity: 1,
+  productId: 111,
+  image: "images/cherry.jpg"
+  },{
+  name: "strawberry",
+  price: 5,
+  quantity: 1,
+  productId: 112,
+  image: "images/strawberry.jpg"
+  },{
+  name: "orange",
+  price: 10,
+  quantity: 1,
+  productId: 113,
+  image: "images/orange.jpg"
+  },];
 
 
 
@@ -43,7 +58,7 @@ function removeProductFromCart(productId) {
 function cartTotal(){
   let sum = 0;
   for (const x = 0; x < cart.length; x++){
-    sum += product.quantity * product.price;
+    sum += products.quantity * product.price;
   }
   return sum;
 }
